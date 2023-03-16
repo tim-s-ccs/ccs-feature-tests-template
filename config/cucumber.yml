@@ -10,7 +10,7 @@ restricted_tags = [
 ].compact.join(' and not ')
 std_opts = "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} --strict --tags 'not #{restricted_tags}' --publish-quiet "
 accessibility_opts = "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} --strict --tags '@accessibility' --publish-quiet CUCUMBER_ACCESSIBILITY=true "
-smoulder_opts = "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} --strict --tags '@smoulder#{' not @skip-production' if ENV['TEST_ENV'] == 'production'}' --publish-quiet "
+smoulder_opts = "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} --strict --tags '@smoulder#{' and not @skip-production' if ENV['TEST_ENV'] == 'production'}' --publish-quiet "
 %>
 default: <%= std_opts %> features
 wip: --tags @wip:3 --wip features --publish-quiet

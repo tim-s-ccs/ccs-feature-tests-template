@@ -53,8 +53,8 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Results
       | KUHIC AND SONS                    |
       | MCKENZIE LLC                      |
       | NICOLAS AND SONS                  |
-      | REYNOLDS INC                      |
       | REYNOLDS-HALVORSON                |
+      | REYNOLDS INC                      |
       | SAWAYN-VON                        |
       | SMITH AND SONS                    |
     And I click on 'Next'
@@ -90,8 +90,8 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Results
       | KUHIC AND SONS                    |
       | MCKENZIE LLC                      |
       | NICOLAS AND SONS                  |
-      | REYNOLDS INC                      |
       | REYNOLDS-HALVORSON                |
+      | REYNOLDS INC                      |
       | SAWAYN-VON                        |
       | SMITH AND SONS                    |
 
