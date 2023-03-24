@@ -54,7 +54,7 @@ Capybara.register_driver :selenium do |app|
   options.add_preference('browser.download.folderList', 2)
   options.add_preference('browser.download.dir', DownloadHelpers::PATH.to_s)
 
-  Capybara::Selenium::Driver.new(app, browser: :firefox, options: options)
+  Capybara::Selenium::Driver.new(app, browser: :firefox, options:)
 end
 
 Capybara.default_driver = :selenium

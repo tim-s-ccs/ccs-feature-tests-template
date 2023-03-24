@@ -47,8 +47,8 @@ Feature: Management Consultancy - Lot 6 - Procurement and Supply Chain - Results
       | HODKIEWICZ LLC                      |
       | JOHNSON GROUP                       |
       | KRAJCIK-ZIEMANN                     |
-      | KSHLERIN INC                        |
       | KSHLERIN, BUCKRIDGE AND BROWN       |
+      | KSHLERIN INC                        |
       | KUHIC AND SONS                      |
       | KUPHAL, CARTER AND DIETRICH         |
       | KUPHAL, JOHNSTON AND SCHROEDER      |
