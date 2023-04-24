@@ -128,11 +128,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    site_prism (3.7.3)
-      addressable (~> 2.6)
-      capybara (~> 3.15)
-      site_prism-all_there (>= 0.3.1, < 1.0)
-    site_prism-all_there (0.3.2)
+    site_prism (4.0)
+      addressable (~> 2.8)
+      capybara (~> 3.27)
+      site_prism-all_there (~> 2.0)
+    site_prism-all_there (2.0)
     sys-uname (1.2.2)
       ffi (~> 1.1)
     thread_safe (0.3.6)
@@ -163,7 +163,7 @@ DEPENDENCIES
   rubocop (~> 1.50)
   rubocop-rspec (~> 2.19)
   selenium-webdriver (~> 4.9.0)
-  site_prism (~> 3.7.0)
+  site_prism (~> 4.0)
 
 RUBY VERSION
    ruby 3.2.1p31
