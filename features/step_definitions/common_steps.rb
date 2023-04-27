@@ -1,10 +1,12 @@
 SERVICE_TO_START_PAGE_TITLE = {
+  'facilities management' => 'Your account',
   'legal services' => 'Do you work for central government?',
   'management consultancy' => 'Important changes to how you access Management Consultancy Framework Three',
   'supply teachers' => 'What is your school looking for?'
 }.freeze
 
 SERVICE_TO_ADMIN_PAGE_TITLE = {
+  'facilities management' => 'RM6232 administration dashboard',
   'legal services' => 'Manage supplier data',
   'management consultancy' => 'Manage supplier data',
   'supply teachers' => 'Supply teachers and agency workers'
@@ -28,6 +30,10 @@ Given('I sign in as an admin for the {string} framework in {string}') do |framew
 
   step 'I sign in'
   step "I am on the '#{SERVICE_TO_ADMIN_PAGE_TITLE.fetch(service)}' page"
+end
+
+When('I am a user without buyer details') do
+  current_user(:buyer_no_details)
 end
 
 When('I go to {string}') do |uri|
@@ -104,6 +110,14 @@ end
 
 Then('I am on {string}') do |expected_path|
   expect(page).to have_current_path expected_path, ignore_query: true
+end
+
+Then('the following content should be displayed on the page:') do |table|
+  page_text = page.find_by_id('main-content').text
+
+  table.raw.flatten.each do |item|
+    expect(page_text).to include(item)
+  end
 end
 
 When('my cookies are disabled') do
