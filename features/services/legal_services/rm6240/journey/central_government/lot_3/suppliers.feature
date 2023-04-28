@@ -1,5 +1,5 @@
 @skip-production
-Feature: Legal services -  Central governemnt - Lot 3 - Suppliers
+Feature: Legal services - Central governemnt - Lot 3 - Suppliers
 
   Background: Login and then navigate to the supplier results page
     Given I sign in and navigate to the start page for the 'RM6240' framework in 'legal services'

@@ -1,4 +1,3 @@
-@javascript
 Feature: Facilities Management - RM6232 - Buyer details
 
   Background: Navigate to Buyer Details page

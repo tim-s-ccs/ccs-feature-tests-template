@@ -38,12 +38,12 @@ raise MissingConfigFileError, config_filename unless File.file?(config_filename)
 
 config = YAML.load_file('config/environment.shared.yml')[test_env].merge(YAML.load_file("config/environment.#{test_env}.yml"))
 
-ENV['BUYER_EMAIL']                ||= config['users']['buyer']['email']
-ENV['BUYER_PASSWORD']             ||= config['users']['buyer']['password']
-ENV['BUYER_NO_DETAILS_EMAIL']     ||= config['users']['buyer_no_details']['email']
-ENV['BUYER_NO_DETAILS_PASSWORD']  ||= config['users']['buyer_no_details']['password']
-ENV['ADMIN_EMAIL']                ||= config['users']['admin']['email']
-ENV['ADMIN_PASSWORD']             ||= config['users']['admin']['password']
+ENV['BUYER_EMAIL']                ||= config.dig('users', 'buyer', 'email')
+ENV['BUYER_PASSWORD']             ||= config.dig('users', 'buyer', 'password')
+ENV['BUYER_NO_DETAILS_EMAIL']     ||= config.dig('users', 'buyer_no_details', 'email')
+ENV['BUYER_NO_DETAILS_PASSWORD']  ||= config.dig('users', 'buyer_no_details', 'password')
+ENV['ADMIN_EMAIL']                ||= config.dig('users', 'admin', 'email')
+ENV['ADMIN_PASSWORD']             ||= config.dig('users', 'admin', 'password')
 
 ENV['TEST_RUN_ID'] = SecureRandom.uuid
 
