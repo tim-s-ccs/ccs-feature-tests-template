@@ -43,6 +43,8 @@ ENV['BUYER_PASSWORD'] ||= config['users']['buyer']['password']
 ENV['ADMIN_EMAIL']    ||= config['users']['admin']['email']
 ENV['ADMIN_PASSWORD'] ||= config['users']['admin']['password']
 
+ENV['TEST_RUN_ID'] = SecureRandom.uuid
+
 # Set the Capybara config
 Capybara.app_host = config['host']
 
@@ -52,7 +54,7 @@ Capybara.register_driver :selenium do |app|
   options.add_argument('-headless') if ENV.fetch('HEADLESS', 'true') == 'true'
 
   options.add_preference('browser.download.folderList', 2)
-  options.add_preference('browser.download.dir', DownloadHelpers::PATH.to_s)
+  options.add_preference('browser.download.dir', DownloadHelpers.download_path)
 
   Capybara::Selenium::Driver.new(app, browser: :firefox, options:)
 end

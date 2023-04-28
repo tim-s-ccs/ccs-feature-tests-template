@@ -88,6 +88,15 @@ To run a specific test add the file path after the command
 bundle exec features/path/to/feature.feature
 ```
 
+To run the tests for each service in parallel, run the command
+
+```shell
+bin/parallel_cucumber.rb <profile> <test_env>
+```
+
+Separate terminals will open up for each service where the tests will then be run.
+Note, this only works on a Mac.
+
 ### Profiles and Tags
 
 As will as the default cucumber profiles (`default`, `rerun`, `wip`) we have an additional `accessibility` profile.
