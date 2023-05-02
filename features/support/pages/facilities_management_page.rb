@@ -1,4 +1,9 @@
 module Pages
+  class SummarySection < SitePrism::Section
+    elements :selection, 'details > div > ul > li'
+    element :change, 'a'
+  end
+
   class FacilitiesManagement < SitePrism::Page
     section :buyer_details, '#main-content' do
       element :Name, '#facilities_management_buyer_detail_full_name'
@@ -25,6 +30,38 @@ module Pages
       element :postcode_error_message, '#organisation_address_postcode-error'
       element :address_drop_down, '#address-results-container'
       element :change_address, '#change-input-2'
+    end
+
+    section :quick_view, '#main-content' do
+      section :basket, '.basket' do
+        elements :selection, 'ul > li > div:nth-of-type(2)'
+        element :selection_count, 'h3'
+        element :remove_all, 'a[aria-label="Remove all"]'
+      end
+
+      element :annual_contract_value, '#annual_contract_value'
+      element :sub_lot, '#procurement-sub-lot'
+
+      section :selection_summary, 'div:nth-child(3) > div.govuk-grid-column-one-third' do
+        section :services, SummarySection, 'div.ccs-summary-box:nth-of-type(1)'
+        section :regions, SummarySection, 'div.ccs-summary-box:nth-of-type(2)'
+
+        section :'annual contract cost', 'div.ccs-summary-box:nth-of-type(3)' do
+          element :selection, '.ccs-summary-box__content'
+          element :change, 'a'
+        end
+      end
+
+      element :contract_name_field, '#facilities_management_rm6232_procurement_contract_name'
+    end
+
+    section :service_specification, '#main-content' do
+      element :sub_title, 'div.govuk-clearfix > div:nth-child(1) > div > span'
+      element :service_name_and_code, 'h2'
+    end
+
+    section :procurement, '#main-content' do
+      elements :procurement_names, 'div.govuk-grid-row > div > div > table > tbody > tr'
     end
   end
 end

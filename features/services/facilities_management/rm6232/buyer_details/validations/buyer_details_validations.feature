@@ -15,7 +15,6 @@ Feature: Facilities Management - RM6232 - Buyer details - validations
       | Select the type of public sector organisation you’re buying for |
       | You must select an option                                       |
 
-  @javascript
   Scenario Outline: Add address - frontend
     And I enter the following details into the form:
       | Postcode  | <postcode>  |
