@@ -1,8 +1,12 @@
 @skip-production
-Feature: Legal Services - Admin - Create new upload
+Feature: Facilities Management - RM6232 - Admin - Create new upload
 
   Background: Navigate to admin upload page
-    Given I sign in as an admin for the 'RM6240' framework in 'legal services'
+    Given I sign in as an admin for the 'RM6232' framework in 'facilities management'
+    Then I am on the 'RM6232 administration dashboard' page
+    And I click on 'Supplier data'
+    Then I am on the 'Supplier data' page
+    And I click on 'Manage the supplier data'
     Then I am on the 'Manage supplier data' page
     And I click on 'Create a new data upload'
     Then I am on the 'New data upload' page
@@ -13,11 +17,9 @@ Feature: Legal Services - Admin - Create new upload
     Then the file 'Supplier spreadsheet templates' is downloaded with the 'zip' extension
 
   Scenario: I can upload successfully
-    And I select the file 'data/legal_services/rm6240/Supplier details.xlsx' to upload for 'Supplier details'
-    And I select the file 'data/legal_services/rm6240/Supplier rate cards.xlsx' to upload for 'Supplier rate cards'
-    And I select the file 'data/legal_services/rm6240/Supplier lot 1 service offerings.xlsx' to upload for 'Supplier lot 1 service offerings'
-    And I select the file 'data/legal_services/rm6240/Supplier lot 2 service offerings.xlsx' to upload for 'Supplier lot 2 service offerings'
-    And I select the file 'data/legal_services/rm6240/Supplier lot 3 service offerings.xlsx' to upload for 'Supplier lot 3 service offerings'
+    And I select the file 'data/facilities_management/Supplier details.xlsx' to upload for 'Supplier details'
+    And I select the file 'data/facilities_management/Supplier services.xlsx' to upload for 'Supplier services'
+    And I select the file 'data/facilities_management/Supplier regions.xlsx' to upload for 'Supplier regions'
     And I click on 'Upload data'
     Then I am on the 'Upload session' page
     And I wait no longer than 40 seconds for the upload to finish
@@ -31,12 +33,10 @@ Feature: Legal Services - Admin - Create new upload
     Then the file '<filename>' is downloaded with the 'xlsx' extension
 
     Examples:
-      | filename                          |
-      | Supplier details                  |
-      | Supplier rate cards               |
-      | Supplier lot 1 service offerings  |
-      | Supplier lot 2 service offerings  |
-      | Supplier lot 3 service offerings  |
+      | filename          |
+      | Supplier details  |
+      | Supplier services |
+      | Supplier regions  |
 
   @file-download
   Scenario Outline: Download files on upload
@@ -51,9 +51,7 @@ Feature: Legal Services - Admin - Create new upload
     Then I am on the 'Manage supplier data' page
 
     Examples:
-      | filename                          |
-      | Supplier details                  |
-      | Supplier rate cards               |
-      | Supplier lot 1 service offerings  |
-      | Supplier lot 2 service offerings  |
-      | Supplier lot 3 service offerings  |
+      | filename          |
+      | Supplier details  |
+      | Supplier services |
+      | Supplier regions  |

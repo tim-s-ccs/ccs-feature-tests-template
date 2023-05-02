@@ -35,9 +35,11 @@ Then('the details for the failed upload are:') do |issues_and_details_table|
     end
   end
 
-  expect(admin_page.upload_issues_table.length).to eq issues_and_details.length
+  upload_issues_table = @framework == 'RM6232' ? admin_page.upload_issues_table_fm : admin_page.upload_issues_table
 
-  issues_and_details.zip(admin_page.upload_issues_table).each do |expected, actual|
+  expect(upload_issues_table.length).to eq issues_and_details.length
+
+  issues_and_details.zip(upload_issues_table).each do |expected, actual|
     expect(actual.issue).to have_content(expected[:issue])
     expect(actual.detail).to have_content(expected[:detail].join(' '))
   end
