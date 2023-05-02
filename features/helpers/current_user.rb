@@ -10,6 +10,7 @@ class CurrentUser
 
   ROLE_TO_ENV_KEYS = {
     buyer: ['BUYER_EMAIL', 'BUYER_PASSWORD'],
+    buyer_no_details: ['BUYER_NO_DETAILS_EMAIL', 'BUYER_NO_DETAILS_PASSWORD'],
     admin: ['ADMIN_EMAIL', 'ADMIN_PASSWORD']
   }.freeze
 end
