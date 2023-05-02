@@ -1,7 +1,7 @@
 Feature: Facilities Management - Navigation links when signed in
 
   Background: I navigate to the start page
-     Given I sign in and navigate to the start page for the 'RM6232' framework in 'facilities management'
+    Given I sign in and navigate to the start page for the 'RM6232' framework in 'facilities management'
 
   Scenario: Start page
     When I go to the 'facilities management' start page for 'RM6232'
@@ -87,7 +87,7 @@ Feature: Facilities Management - Navigation links when signed in
   Scenario Outline: Buyer details - Add address
     Then I click on 'Manage my details'
     Then I am on the 'Manage your details' page
-    And I want to change my address
+    And I change my contact detail address
     And I click on 'Find address'
     And I click on 'Enter address manually, if you can’t find address'
     Then I am on the 'Add address' page
