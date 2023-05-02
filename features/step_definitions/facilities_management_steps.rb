@@ -189,3 +189,14 @@ Then('the facilities management file for {string} is downloaded with the {string
   expect(download_file_name).to start_with(filename)
   expect(download_file_name).to end_with(".#{file_extension}")
 end
+
+Then('the selected facilities management suppliers are:') do |suppliers|
+  supplier_elements = facilities_management_page.quick_view.suppliers
+  supplier_names = suppliers.raw.flatten
+
+  expect(supplier_elements.length).to eq supplier_names.length
+
+  supplier_elements.zip(supplier_names).each do |actual, expected|
+    expect(actual).to have_content expected
+  end
+end

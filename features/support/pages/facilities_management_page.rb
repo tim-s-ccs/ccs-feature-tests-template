@@ -53,6 +53,7 @@ module Pages
       end
 
       element :contract_name_field, '#facilities_management_rm6232_procurement_contract_name'
+      elements :suppliers, 'div:nth-child(3) > div.govuk-grid-column-two-thirds > ul > li'
     end
 
     section :service_specification, '#main-content' do
