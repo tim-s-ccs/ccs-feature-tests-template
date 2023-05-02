@@ -5,8 +5,7 @@ test_env  = ARGV[1] || 'local'
 
 current_dir = `pwd`.chomp
 
-# services = %w[facilities_management legal_services management_consultancy supply_teachers]
-services = %w[legal_services management_consultancy supply_teachers]
+services = %w[facilities_management legal_services management_consultancy supply_teachers]
 
 windows = services.map do |service|
   open_terminal_cmd = `osascript -e 'tell app "Terminal" to do script "cd #{current_dir} && echo Running tests for: #{service} && CUCUMBER_FORMAT=progress TEST_ENV=#{test_env} bundle exec cucumber -p #{profile} features/services/#{service}/"'`
