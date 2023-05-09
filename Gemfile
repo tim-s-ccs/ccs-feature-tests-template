@@ -22,4 +22,4 @@ gem 'byebug', '~> 11.1'
 
 # For linting
 gem 'rubocop', '~> 1.50'
-gem 'rubocop-rspec', '~> 2.20'
+gem 'rubocop-rspec', '~> 2.22'
