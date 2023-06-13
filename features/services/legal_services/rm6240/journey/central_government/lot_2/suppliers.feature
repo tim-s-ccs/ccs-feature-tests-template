@@ -39,13 +39,13 @@ Feature: Legal services - Central governemnt - Lot 2 - Suppliers
     Given I click on 'BERNHARD, WEHNER AND ORN'
     Then I am on the 'BERNHARD, WEHNER AND ORN' page
     Then the supplier 'is' an SME
-    And the 'Partner' hourly rate is '£300.00'
-    And the 'Senior Solicitor, Senior Associate' hourly rate is '£260.00'
-    And the 'Solicitor, Associate' hourly rate is '£170.00'
-    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' hourly rate is '£170.00'
-    And the 'Trainee' hourly rate is '£100.00'
-    And the 'Paralegal, Legal Assistant' hourly rate is '£90.00'
-    And the 'LMP (Legal project manager)' hourly rate is '£260.00'
+    And the 'Partner' hourly rate is '£175.00'
+    And the 'Senior Solicitor, Senior Associate' hourly rate is '£160.00'
+    And the 'Solicitor, Associate' hourly rate is '£150.00'
+    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' hourly rate is '£135.00'
+    And the 'Trainee' hourly rate is '£65.00'
+    And the 'Paralegal, Legal Assistant' hourly rate is '£65.00'
+    And the 'LMP (Legal project manager)' hourly rate is '£200.00'
     And the contact details for the supplier are:
       | bernhard.and.wehner.orn@kuvalis.com                     |
       | 957.291.1622 x25202                                     |
@@ -56,13 +56,13 @@ Feature: Legal services - Central governemnt - Lot 2 - Suppliers
     Given I click on 'MOSCISKI, LABADIE AND REMPEL'
     Then I am on the 'MOSCISKI, LABADIE AND REMPEL' page
     Then the supplier 'is not' an SME
-    And the 'Partner' hourly rate is '£335.00'
-    And the 'Senior Solicitor, Senior Associate' hourly rate is '£255.00'
-    And the 'Solicitor, Associate' hourly rate is '£210.00'
-    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' hourly rate is '£165.00'
+    And the 'Partner' hourly rate is '£135.00'
+    And the 'Senior Solicitor, Senior Associate' hourly rate is '£125.00'
+    And the 'Solicitor, Associate' hourly rate is '£115.00'
+    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' hourly rate is '£105.00'
     And the 'Trainee' hourly rate is '£100.00'
     And the 'Paralegal, Legal Assistant' hourly rate is '£90.00'
-    And there is no LMP (Legal project manager) hourly rate
+    And the 'LMP (Legal project manager)' hourly rate is '£90.00'
     And the contact details for the supplier are:
       | and_rempel_labadie_mosciski@kerluke-halvorson.biz |
       | 1-208-997-2077 x593                               |
