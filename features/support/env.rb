@@ -18,6 +18,9 @@ require 'active_support/all'
 # Allows us to use site prism in our tests
 require_relative '../support/pages'
 
+# Allows us to run tests on different browsers
+Dir['../support/drivers/*.rb'].each { |file| require file }
+
 World(Pages)
 
 # Set the time zone
@@ -38,29 +41,19 @@ raise MissingConfigFileError, config_filename unless File.file?(config_filename)
 
 config = YAML.load_file('config/environment.shared.yml')[test_env].merge(YAML.load_file("config/environment.#{test_env}.yml"))
 
-ENV['BUYER_EMAIL']                ||= config.dig('users', 'buyer', 'email')
-ENV['BUYER_PASSWORD']             ||= config.dig('users', 'buyer', 'password')
-ENV['BUYER_NO_DETAILS_EMAIL']     ||= config.dig('users', 'buyer_no_details', 'email')
-ENV['BUYER_NO_DETAILS_PASSWORD']  ||= config.dig('users', 'buyer_no_details', 'password')
-ENV['ADMIN_EMAIL']                ||= config.dig('users', 'admin', 'email')
-ENV['ADMIN_PASSWORD']             ||= config.dig('users', 'admin', 'password')
+# TODO: You should replace this with your project user types
+ENV['BUYER_EMAIL']    ||= config.dig('users', 'buyer', 'email')
+ENV['BUYER_PASSWORD'] ||= config.dig('users', 'buyer', 'password')
+ENV['ADMIN_EMAIL']    ||= config.dig('users', 'admin', 'email')
+ENV['ADMIN_PASSWORD'] ||= config.dig('users', 'admin', 'password')
 
 ENV['TEST_RUN_ID'] = SecureRandom.uuid
 
 # Set the Capybara config
 Capybara.app_host = config['host']
 
-Capybara.register_driver :selenium do |app|
-  options = Selenium::WebDriver::Firefox::Options.new
+ENV['DRIVER'] ||= 'selenium'
 
-  options.add_argument('-headless') if ENV.fetch('HEADLESS', 'true') == 'true'
-
-  options.add_preference('browser.download.folderList', 2)
-  options.add_preference('browser.download.dir', DownloadHelpers.download_path)
-
-  Capybara::Selenium::Driver.new(app, browser: :firefox, options:)
-end
-
-Capybara.default_driver = :selenium
+Capybara.default_driver = ENV['DRIVER'].to_sym
 
 Capybara.ignore_hidden_elements = false

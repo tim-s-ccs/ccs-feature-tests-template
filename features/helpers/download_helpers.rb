@@ -40,7 +40,7 @@ module DownloadHelpers
     end
 
     def downloading?
-      downloads.grep(/\.part$/).any?
+      downloads.grep(/\.part$/).any? || downloads.grep(/\.crdownload$/).any?
     end
   end
 end

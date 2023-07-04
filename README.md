@@ -1,6 +1,8 @@
-# Crown Marketplace - Feature tests
+# CCS - Feature tests template
 
-This repository contains feature tests for the [Crown Marketplace][] and [Crown Marketplace Legacy][] project which can be run in non development environments.
+This repository is a template for creating an automated feature test suite that will run on non-local environments.
+
+You can example of this template in use with the [Crown Marketplace - Feature tests][] project
 
 This is a ruby project which uses [Cucumber][] BDD framework and [Capybara][] to run the tests.
 
@@ -17,12 +19,36 @@ Ensure that a ruby version manager (e.g. rvm or rbenv) is installed and set up p
 
 #### Software requirements
 
-This project uses geckodriver, which requires the Firefox browser, as the web driver for the cucumber feature tests
+This project uses geckodriver by default, which requires the Firefox browser, as the web driver for the cucumber feature tests
 
 ```shell
 brew install --cask firefox
 brew install geckodriver
 ```
+
+There is also configuration for chrome driver which can be installed with:
+```bash
+brew install chromedriver
+```
+
+> **_NOTE:_** If you have a test that downloads a file, it will not work with chrome driver
+
+##### Alternative `chromedriver` install for mac
+If `brew` does not work when installing `chromedriver`, try following these steps.
+
+Download `chromedriver` manually from the [ChromeDriver website](https://chromedriver.chromium.org/downloads).
+Make sure it [matches your version of Chrome](https://www.businessinsider.com/what-version-of-google-chrome-do-i-have?r=US&IR=T).
+
+To your `~/.bash_profile` (or equivalent) you need to add the path to the folder in which `chromedriver` is enclosed.
+This would look something like this:
+```
+export PATH=/<path_to_folder_with_chromedriver>:$PATH
+```
+Once you have refreshed your terminal, you may need to run this command:
+```bash
+xattr -d com.apple.quarantine $(which chromedriver)
+```
+This will make sure your Mac has the ability to open `chromedriver`.
 
 ## Setting up the test environment
 
@@ -32,19 +58,15 @@ Before running the tests, make sure you have all the gems installed by running
 bundle install
 ```
 
-Crown Marketplace project has 5 environments:
-- local - the development environment
-- sandbox
-- cmpdev - the QA environment
-- preview
-- production - the live environment
+**<PROJECT_NAME>** project has **<n>** environments:
+- TODO: List environments
 
 To run in a specific environment you will need to set the `TEST_ENV` environment variable, which is `local` by default.
 
-The Crown Marketplace application requires users to be logged in when using it so you need to also set the authentication config.
+The **<PROJECT_NAME>** application requires users to be logged in when using it so you need to also set the authentication config.
 For obvious reasons we do not store this config in this public repo so you will need to make your own config files in the `config/` folder.
 
-The filename should be `environment.<TEST_ENV>.yml`, for example the config file for the cmpdev environment would be named `environment.cmpdev.yml`.
+The filename should be `environment.<TEST_ENV>.yml`, for example the config file for the **<ENVIRONMENT_NAME>** environment would be named `environment.`**<ENVIRONMENT_NAME>**`.yml`.
 The file should then contain the following keys which you need to fill in
 
 ```yml
@@ -95,15 +117,6 @@ bin/parallel_cucumber.rb <profile> <test_env> <number_of_processes>
 ```
 
 > Note, I have found this to be a little bit flakey so use at your own risk
-
-To run the tests for each service in parallel, run the command
-
-```shell
-bin/parallel_cucumber.mac.rb <profile> <test_env>
-```
-
-Separate terminals will open up for each service where the tests will then be run.
-> Note, this only works on a Mac OS.
 
 ### Profiles and Tags
 
@@ -158,14 +171,13 @@ Once you have pushed your changes, you should open a Pull Request on the main br
 
 Once all these have passed, and the PR has been reviewed and approved by another developer, you can merge the PR.
 
-[Crown Marketplace]: https://github.com/Crown-Commercial-Service/crown-marketplace-legacy
-[Crown Marketplace Legacy]: https://github.com/Crown-Commercial-Service/crown-marketplace-legacy
+[Crown Marketplace - Feature tests]: https://github.com/Crown-Commercial-Service/crown-marketplace-feature-tests
 [Cucumber]: https://cucumber.io/
 [Capybara]: https://github.com/teamcapybara/capybara
-[data folder]: https://github.com/tim-s-ccs/crown-marketplace-feature-tests/blob/main/data
+[data folder]: https://github.com/tim-s-ccs/ccs-feature-tests-template/tree/main/data
 [tags]: #profiles-and-tags
 [accessibility features]: #accessibility-features
 [Axe Cucumber]: https://www.deque.com/axe/
 [rubocop]: https://github.com/rubocop-hq/rubocop
 [rubocop-rspec]: https://github.com/rubocop-hq/rubocop-rspec
-[rubocop-yml]: https://github.com/tim-s-ccs/crown-marketplace-feature-tests/blob/main/.rubocop.yml
+[rubocop-yml]: https://github.com/tim-s-ccs/ccs-feature-tests-template/blob/main/.rubocop.yml
