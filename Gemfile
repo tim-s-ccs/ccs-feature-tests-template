@@ -21,7 +21,7 @@ gem 'activesupport', '~> 7.0.6'
 gem 'byebug', '~> 11.1'
 
 # For linting
-gem 'rubocop', '~> 1.54'
+gem 'rubocop', '~> 1.56'
 gem 'rubocop-rspec', '~> 2.22'
 
 # For running tests in parallel
