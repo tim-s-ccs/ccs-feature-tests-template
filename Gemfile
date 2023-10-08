@@ -15,7 +15,7 @@ gem 'axe-core-capybara', '>= 4.2.1'
 gem 'axe-core-cucumber', '>= 4.2.1'
 
 # For Time zones and manipulating dates
-gem 'activesupport', '~> 7.0.7'
+gem 'activesupport', '~> 7.1.0'
 
 # For debugging
 gem 'byebug', '~> 11.1'
